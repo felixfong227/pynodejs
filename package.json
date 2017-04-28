@@ -1,0 +1,14 @@
+{
+  "name": "pynodejs",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "@felixfong227 <moongod101@hotmail.com> (https://felixfong227.ml)",
+  "license": "MIT",
+  "keywords": [
+    "python",
+    "language",
+    "javascript",
+    "encrypt"
+  ],
+  "description": "Python core inside JavaScript"
+}
