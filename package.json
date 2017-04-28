@@ -10,5 +10,9 @@
     "javascript",
     "encrypt"
   ],
-  "description": "Python core inside JavaScript"
+  "description": "Python core inside JavaScript",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:felixfong227/pynodejs.git"
+  }
 }
