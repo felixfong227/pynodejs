@@ -5,17 +5,7 @@ module.exports = {
     list: string => {
         return string.split('');
     },
-    read: filePath => {
-        const path = require('path');
-        const fs = require('fs');
-        return fs.readFileSync(path.join(`${process.cwd()}/${filePath}`), 'utf-8');
-    },
-    write: (filePath, content) => {
-        const path = require('path');
-        const fs = require('fs');
-         fs.writeFileSync(path.join(`${process.cwd()}/${filePath}`), content);
-         return true;
-    },
+    
     isinstance: (char, type) => {
         // There a different name for JavaScirpt and Python ¯\_(ツ)_/¯
         switch(type){
@@ -42,12 +32,5 @@ module.exports = {
     round: number => {
         return Math.round(number);
     },
-    encrypt: {
-        md5: string => {
-            return require('crypto').createHash('md5').update(string).digest("hex");
-        },
-        sha224: string => {
-            return require('crypto').createHash('sha224').update(string).digest("hex");
-        }
-    }
+    lib: require('./common_library/lib'),
 }
