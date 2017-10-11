@@ -35,8 +35,17 @@ pynodejs.print(pynodejs.lib.os.getcwd())
 // Get the CLI argument
 pynodejs.print(pynodejs.lib.sys.argv);
 
+const dir = "./src";
+
 // List files
-pynodejs.print(pynodejs.lib.path("."))
+pynodejs.print(pynodejs.lib.path(dir))
 
 // Check if the path is a directory or not
-pynodejs.print(pynodejs.lib.path(".").is_dir)
+pynodejs.print(pynodejs.lib.path(dir).is_dir);
+
+// Using third party PyNodeJS modules
+pynodejs.pip.add([
+    './pony_lib/pony'
+]);
+
+pynodejs.print(pynodejs.lib.pony_lib.greeting('Felix'))

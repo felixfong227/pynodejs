@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 module.exports = {
     print: string => {
         console.log(string);
@@ -32,5 +34,25 @@ module.exports = {
     round: number => {
         return Math.round(number);
     },
+    
+    // Third party developer common library
+    
+    pip: {
+        add: pkgs => {
+            const cwd = process.cwd();
+            pkgs.forEach(libPath => {
+                libPath = path.join(`${cwd}/${libPath}`);
+                const libCode = require(libPath);
+                const libName = libCode._config.name;
+                if(!libName){
+                    throw new Error('package name must be specified')
+                }
+                delete libCode._config;
+                require('./common_library/lib')[libName] = libCode;
+                console.log(`PyNodeJS: ${libName} has added to your PyNodeJS runtime`);
+            })
+        }
+    },
+    
     lib: require('./common_library/lib'),
 }
