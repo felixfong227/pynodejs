@@ -40,8 +40,8 @@ module.exports = {
     pip: {
         add: pkgs => {
             const cwd = process.cwd();
-            pkgs.forEach(libPath => {
-                libPath = path.join(`${cwd}/${libPath}`);
+            
+            function addPkg(libPath) {
                 const libCode = require(libPath);
                 const libName = libCode._config.name;
                 if(!libName){
@@ -49,8 +49,17 @@ module.exports = {
                 }
                 delete libCode._config;
                 require('./common_library/lib')[libName] = libCode;
-                console.log(`PyNodeJS: ${libName} has added to your PyNodeJS runtime`);
-            })
+            }
+            
+            if(typeof pkgs === 'string'){
+                const libPath = path.join(`${cwd}/${pkgs}`);
+                addPkg(libPath);
+            }else{
+                pkgs.forEach(libPath => {
+                    libPath = path.join(`${cwd}/${libPath}`);
+                    addPkg(libPath);
+                });
+            }
         }
     },
     

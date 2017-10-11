@@ -44,8 +44,16 @@ pynodejs.print(pynodejs.lib.path(dir))
 pynodejs.print(pynodejs.lib.path(dir).is_dir);
 
 // Using third party PyNodeJS modules
+// pynodejs.pip.add('');
+// pynodejs.pip.add('');
+
 pynodejs.pip.add([
-    './pony_lib/pony'
+    './pony_lib/pony',
+    './src/extra_lib/helper',
 ]);
 
 pynodejs.print(pynodejs.lib.pony_lib.greeting('Felix'))
+
+pynodejs.print(pynodejs.lib.pynodejs_helper.random.string())
+
+pynodejs.print(pynodejs.lib.pynodejs_helper.random.number())
